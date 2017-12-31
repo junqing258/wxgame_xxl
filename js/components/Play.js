@@ -100,11 +100,10 @@ export default class Play extends Laya.Sprite {
     }
 
     moveGem(x, y) {
-        if (selectGem/* && pointer.isDown*/) {
+        if (selectGem) {
             x = Math.floor(x / GEM_SIZE);
             y = Math.floor(y / GEM_SIZE);
             if (this.checkCanMove(x, y)) {
-                // gems.bringToTop(selectGem);
                 this.tweenGem(selectGem, x, y);
                 if (nextGem) {
                     this.tweenGem(nextGem, selectGem.posX, selectGem.posY);
@@ -187,7 +186,6 @@ export default class Play extends Laya.Sprite {
         waitKill_H = [];
     }
 
-    // 遍历全图将所有已被挪走的位置坠落填充
     dropGems() {
         var max = 0;
         for (var j = 0; j < COLS; j++) {
@@ -225,7 +223,6 @@ export default class Play extends Laya.Sprite {
         Laya.timer.once(300, this, this.dropGems);
     }
 
-    // 把最顶上的空缺用场景外的方块重新填充
     refill() {
         for (let i = 0; i < COLS; i++) {
             let ct = ctList[i];
@@ -234,7 +231,6 @@ export default class Play extends Laya.Sprite {
             for (let j = 0; j < ct; j++) {
                 let posY = -j-1;
                 let gem = ctCols[posY];
-                // if (!gem) continue;
                 gem.color = COLORS[randomNum(COLORS.length-1)];
                 gem.reset();
 
@@ -313,10 +309,6 @@ export default class Play extends Laya.Sprite {
 
     calcGemId (x, y) {
         return x + y * COLS;
-    }
-
-    uncalcGemId(id) {
-        return [id%COLS, Math.floor(id/COLS)];
     }
 
     updateText() {
