@@ -2,14 +2,6 @@
 import { randomNum } from "../utils/util";
 const { Event, Handler, Tween, Ease } = Laya;
 
-const COLORS = ["b","g","r","p"];
-const FIXED = {
-	"b": [0,0],
-	"g": [0,0],
-	"r": [0,0],
-	"p": [0,0]
-};
-
 export default class Gem  extends Laya.Sprite {
 
     constructor() {

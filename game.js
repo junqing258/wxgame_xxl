@@ -1,10 +1,10 @@
 import "./weapp-adapter.js";
-import "./libs/min/laya.core.min.js";
-import "./libs/min/laya.wxmini.min.js";
-import "./libs/min/laya.webgl.min.js";
-import "./libs/min/laya.ani.min.js";
-import "./libs/min/laya.filter.min.js";
-import "./libs/min/laya.ui.min.js";
+import "./libs/laya.core.js";
+import "./libs/laya.wxmini.js";
+import "./libs/laya.webgl.js";
+import "./libs/laya.ani.js";
+import "./libs/laya.filter.js";
+import "./libs/laya.ui.js";
 
 import Main from './js/Main.js';
 

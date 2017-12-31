@@ -1,4 +1,5 @@
 import Play from "components/Play";
+import SwimPool from "components/SwimPool";
 
 const { Stage, Sprite, Event, Handler, Text } = Laya;
 
@@ -20,7 +21,6 @@ export default class Main {
 		stage.screenMode = Stage.SCREEN_HORIZONTAL;
 		stage.bgColor =	"#46ABFC";
 
-
 		const registeFnt = fontRes=> {
 	        for (let i = 0; i < fontRes.length; i++) {
 	            let bitmapFont = new Laya.BitmapFont();
@@ -29,25 +29,28 @@ export default class Main {
 	        }
 	    }
 		
-	    // return;
-
 		Laya.loader.load([
 			{ url: "res/atlas/fish.json", type: "atlas" },
 			{ url: "res/bg_cells.png", type: "image" },
-			{ url: "res/bg.jpg", type: "image" }/*,
+			{ url: "res/bg.jpg", type: "image" },
+			{ url: "res/fish5.sk", type: "arraybuffer" },
+			{ url: "res/fish5.png", type: "image" },
+			{ url: "res/fish8.sk", type: "arraybuffer" },
+			{ url: "res/fish8.png", type: "image" },
 			{ url: "res/prizeFont.fnt", type: "arraybuffer" },
-			{ url: "res/prizeFont.png", type: "image" }*/
+			{ url: "res/prizeFont.png", type: "image" }
 		], Laya.Handler.create(null, ()=> {
 			/*registeFnt([
 				{ url: "res/prizeFont.fnt", name: "prizeFont", type: "xml" },
 			]);*/
-			Laya.stage.once(Laya.Event.CLICK, this, ()=> Laya.SoundManager.playMusic("res/bg.mp3", 0) );
 			let bg = new Laya.Image("res/bg.jpg");
-			Laya.stage.addChildren(bg);
+			Laya.stage.addChildAt(bg, 0);
 			let play = new Play();
 			play.pos(200, 35);
-			Laya.stage.addChildren(play);
+			let swimPool = new SwimPool();
+			Laya.stage.addChildren(swimPool, play);
 			bg.on(Laya.Event.CLICK, this, ()=> wx.showShareMenu({ withShareTicket: true }) );
+			Laya.SoundManager.playMusic("res/bg.mp3");
 	    }));
 	}
 

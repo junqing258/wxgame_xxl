@@ -1,9 +1,10 @@
 import Gem from "./Gem";
 import { randomNum } from "../utils/util";
+import { pubsub } from "./Tools";
 
 const { Event, Handler, Tween, Ease } = Laya;
 
-const COLORS = ["b","g","r","p"];
+const COLORS = ["o","b","g","r","p"];
 const ROWS = 8, COLS = 8;
 const GEM_SIZE = 80;
 const MIN_CLEAR = 3;
@@ -29,6 +30,9 @@ export default class Play extends Laya.Sprite {
         this.addChild(this.bg);
         this.create();
         this.initScore();
+        this.on(Event.CLICK, this, event=> {
+            event.stopPropagation();
+        });
     }
 
     initScore() {
@@ -39,7 +43,7 @@ export default class Play extends Laya.Sprite {
         panle.align = "center";
         panle.text = textScore;
         panle.pos(1020, 50);
-        // Laya.stage.addChild(panle);
+        Laya.stage.addChild(panle);
     }
 
     create() {
@@ -176,6 +180,9 @@ export default class Play extends Laya.Sprite {
             });
             afterCanClear = true;
         }
+
+        pubsub.event("KILL_5", Math.floor((waitKill_H.length+waitKill_V.length)/3));
+
         waitKill_V = [];
         waitKill_H = [];
     }
@@ -228,7 +235,7 @@ export default class Play extends Laya.Sprite {
                 let posY = -j-1;
                 let gem = ctCols[posY];
                 // if (!gem) continue;
-                gem.color = COLORS[randomNum(3)];
+                gem.color = COLORS[randomNum(COLORS.length-1)];
                 gem.reset();
 
                 gem.pos(gem.posX*GEM_SIZE+GEM_SIZE/2, posY*GEM_SIZE+GEM_SIZE/2);
@@ -287,7 +294,7 @@ export default class Play extends Laya.Sprite {
         var xColor = prev1x && prev2x && prev1x.color == prev2x.color && prev1x.color,
             yColor = prev1y && prev2y && prev1y.color == prev2y.color && prev1y.color;
         do {
-            gem.color = COLORS[randomNum(3)];
+            gem.color = COLORS[randomNum(COLORS.length-1)];
         } while (gem.color === xColor || gem.color === yColor);
         gem.reset();
     }

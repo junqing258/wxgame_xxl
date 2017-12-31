@@ -10,7 +10,7 @@
 	"compileType": "game",
 	"libVersion": "game",
 	"appid": "touristappid",
-	"projectname": "%E6%B6%88%E6%B6%88%E4%B9%90demo",
+	"projectname": "%E6%8D%95%E9%B1%BC%E6%B6%88%E9%99%A4",
 	"isGameTourist": true,
 	"condition": {
 		"search": {
