@@ -50,7 +50,7 @@ export default class Main {
 			let swimPool = new SwimPool();
 			Laya.stage.addChildren(swimPool, play);
 			bg.on(Laya.Event.CLICK, this, ()=> wx.showShareMenu({ withShareTicket: true }) );
-			Laya.SoundManager.playMusic("res/bg.mp3");
+			Laya.SoundManager.playMusic("res/bg.mp3",0);
 	    }));
 	}
 
