@@ -49,7 +49,6 @@ export default class Main {
 			play.pos(200, 35);
 			let swimPool = new SwimPool();
 			Laya.stage.addChildren(swimPool, play);
-			bg.on(Laya.Event.CLICK, this, ()=> wx.showShareMenu({ withShareTicket: true }) );
 			Laya.SoundManager.playMusic("res/bg.mp3",0);
 	    }));
 	}
@@ -57,3 +56,4 @@ export default class Main {
 
 }
 
+window.AppMain = Main;
