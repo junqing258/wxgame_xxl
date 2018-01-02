@@ -56,4 +56,4 @@ export default class Main {
 
 }
 
-window.AppMain = Main;
+// window.AppMain = Main;
