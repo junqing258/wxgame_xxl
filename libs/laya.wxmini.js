@@ -406,7 +406,7 @@ var MiniLoader=(function(){
 			var tempData;
 			if (type==/*laya.net.Loader.JSON*/"json" || type==/*laya.net.Loader.ATLAS*/"atlas"){
 				tempData=MiniAdpter.getJson(data.data);
-				}else if (type==/*laya.net.Loader.XML*/"xml"){
+				}else if (type==/*laya.net.Loader.XML*/"xml" || type=="font"){
 				tempData=Utils.parseXMLFromString(data.data);
 				}else {
 				tempData=data.data;

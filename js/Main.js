@@ -37,12 +37,12 @@ export default class Main {
 			{ url: "res/fish5.png", type: "image" },
 			{ url: "res/fish8.sk", type: "arraybuffer" },
 			{ url: "res/fish8.png", type: "image" },
-			{ url: "res/prizeFont.fnt", type: "arraybuffer" },
+			{ url: "res/prizeFont.fnt", type: "xml" },
 			{ url: "res/prizeFont.png", type: "image" }
 		], Laya.Handler.create(null, ()=> {
-			/*registeFnt([
-				{ url: "res/prizeFont.fnt", name: "prizeFont", type: "xml" },
-			]);*/
+			registeFnt([
+				{ url: "res/prizeFont.fnt", name: "prizeFont", type: "font" },
+			]);
 			let bg = new Laya.Image("res/bg.jpg");
 			Laya.stage.addChildAt(bg, 0);
 			let play = new Play();

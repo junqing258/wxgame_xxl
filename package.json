@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/junqing258/wxgame_xxl/issues"
   },
-  "homepage": "https://github.com/junqing258/wxgame_xxl#readme"
+  "homepage": "https://github.com/junqing258/wxgame_xxl#readme",
+  "dependencies": {
+    "dom-parser": "^0.1.5"
+  }
 }

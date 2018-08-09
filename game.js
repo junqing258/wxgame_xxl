@@ -6,6 +6,9 @@ import "./libs/laya.ani.js";
 import "./libs/laya.filter.js";
 import "./libs/laya.ui.js";
 
+import Parser from "./libs/dom_parser";
 import Main from './js/Main.js';
+
+window.Parser = Parser;
 
 new Main();
