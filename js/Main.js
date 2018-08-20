@@ -55,5 +55,3 @@ export default class Main {
 
 
 }
-
-// window.AppMain = Main;
